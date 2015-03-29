@@ -11,8 +11,59 @@
  */
 class View {
 	/**
-	 * holds the current view
+	 * holds the current template
 	 * 
-	 * @var array
+	 * @var string
 	 */
-	private $view = array();
+	private $template = '';
+	
+	/**
+	 * holds the template variables
+	 * 
+	 * @var string
+	 */
+	private $variables = '';
+	
+	/**
+	 * the path to the current file (change this to whatever suits you)
+	 * 
+	 * @var string
+	 */
+	const PATH = dirname(__FILE__) . DIRECTORY_SEPARATOR;
+	
+	/**
+	 * the template file 
+	 * 
+	 * @var string
+	 */
+	const PATH = dirname(__FILE__) . DIRECTORY_SEPARATOR;
+	
+	
+	/**
+	 * Constructor
+	 * 
+	 * @param string $template  the template file to work with
+	 * @param array $variables (optional)  the variables to replace in the template
+	 */
+	public function __construct(string $template, array $variables = array()) {
+			$this->template = $template;
+			$this->variables = $variables;
+	}
+
+	public function render() {
+		// start collecting the output
+		ob_start();
+
+		// make the variables available in the template
+		extract($this->variables);
+		
+		// include the theme functions file, if any
+		if (is_readable($theme_functions = PATH . 'theme_functions.php')) include $theme_functions;
+
+		// require the actual template
+		require $this->template_dir . $this->template . '.php';
+
+		// returb the collected output
+		return ob_get_clean();
+	}
+}
