@@ -12,7 +12,7 @@ basic PHP structure is just too much overhead, both in transmission and learning
 - Partials (sub-templates)
 - Separately defined template variables and functions
 - No external dependencies
-- Small as hell (98 lines with comments currently)
+- Small as hell (26 SLOC currently)
 &nbsp;
 &nbsp;
 
