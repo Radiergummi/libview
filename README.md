@@ -25,6 +25,31 @@ The template file `templates/page.php` could look like this:
   <link href="<? echo $assetPath; ?>/style.css" rel="stylesheet" />
   </head>
   <body>
-    <h1><? echo $welcomeMessage ?></h1>
+    <h1><? echo $welcomeMessage; ?></h1>
+// ...
+```
+There are people who claim pure PHP being to complicated for designers and advocate for template engines like Smarty instead. If you belong to those and are still reading this, please consider the points made [here](http://www.bigsmoke.us/php-templates/smarter-sans-smarty). I think learning an additional template syntax to replace basic PHP structure is just too much overhead, both in transmission and learning effort.  
+
+### Functions
+Sometimes, variables are just not enough and you need a function for a specific task within your templates. To supply these, create a file named `theme_functions.php` in your apps folder (*Not* within the templates folder). Libview will check for it and pass the content to the template. Just think of *not* adding a namespace to it: That way, you can easily use the functions in it by their name.  
+
+Example:  
+`theme_functions.php`
+```php
+<?
+/**
+ * returns a relative path to the asset folder for HTML links and optionally appends an element.
+ *
+ * @param string $append (optional)  append the given string to the path.
+ */
+function assetPath(string $append = ''){
+  return (empty($append) ? '/main/assets/' : '/main/assets/' . ltrim($append, '/'));
+}
+```
+
+`templates/page.php`
+```php
+// ...
+  <link href="<? echo assetPath('css/base/page.css'); ?>" rel="stylesheet" />
 // ...
 ```
