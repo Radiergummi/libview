@@ -32,6 +32,7 @@ There are people who claim pure PHP being to complicated for designers and advoc
 
 ### Functions
 Sometimes, variables are just not enough and you need a function for a specific task within your templates. To supply these, create a file named `theme_functions.php` in your apps folder (*Not* within the templates folder). Libview will check for it and pass the content to the template. Just think of *not* adding a namespace to it: That way, you can easily use the functions in it by their name.  
+&nbsp;
 
 Example:  
 `theme_functions.php`
@@ -46,6 +47,7 @@ function asset(string $append = ''){
   return (empty($append) ? '/main/assets/' : '/main/assets/' . ltrim($append, '/'));
 }
 ```
+&nbsp;
 
 `templates/page.php`
 ```php
