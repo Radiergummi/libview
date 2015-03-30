@@ -14,10 +14,11 @@ To create a basic view, construct a new one:
 ```php
 $page = new View('page');
 ```
-Now `$page` holds the html/php output ready to ship to the client - you can just `echo` it. To make this work, we supply the object with a template name (*page* in this case) which it looks for in a subfolder named `templates`. I assume however you will make that suit your app.  
+Now `$page` holds the html/php output ready to ship to the client. To make this work, we supply the object with a template name (*page* in this case) which it looks for in a subfolder named `templates`. I assume however you will make that suit your app.  
 The template itself can contain regular PHP and HTML.
+&nbsp;
 
-### Variables
+### Template Variables
 Now a template without dynamic content would be pretty pointless after all. Therefore, we can construct our view like this:
 ```php
 $variables = array('welcomeMessage' => 'Hi there!', 'assetPath' => '/main/assets');
@@ -36,7 +37,7 @@ The template file `templates/page.php` could look like this:
 ```
 &nbsp;
 
-### Functions
+### Template functions
 Sometimes, variables are just not enough and you need a function for a specific task within your templates. To supply these, create a file named `theme_functions.php` in your apps folder (*Not* within the templates folder). Libview will check for it and pass the content to the template. Just think of *not* adding a namespace to it: That way, you can easily use the functions in it by their name.  
 
 Example:  
@@ -60,3 +61,51 @@ function asset(string $append = ''){
   <link href="<? echo asset('css/base/page.css'); ?>" rel="stylesheet" />
 // ...
 ```
+&nbsp;
+
+### Combining to String output
+If you are done with the view, just run `render()`on it: That will return a string ready for output (See below for details).
+
+### Methods
+Libview provides several methods to prepare your View. More on them below:
+&nbsp;
+
+##### Partial
+To get a sub-template into your view, eg. a footer or header, create a partial:
+```php
+$page = new View('page', $variables);
+$page
+  ->partial('header', 'template-header', $headerVariables)
+  ->partial('footer', 'template-footer', $footerVariables);
+```
+In your template, you can just insert a `<? echo $header ?>` and the parsed content of the file `templates/template-header.php` will appear. You also can (but don't have to) supply template variables to the partial.
+&nbsp;
+
+##### Set
+To add a new template variable at some point, use `set`:
+```php
+$page = new View('page', $variables);
+$page->set('foo', 'bar');
+```
+&nbsp;
+
+##### mergeVariables
+To add multiple new template variables at some point, use `mergeVariables`:
+```php
+$page = new View('page', $variables);
+$page->mergeVariables(array('port' => 8080, 'ssl' => true, 'db' => $handle));
+```
+This will merge the existing array with the new one, which means that variables of the same name will be overwritten.
+&nbsp;
+
+##### render
+If a template is ready to dispatch, the whole thing needs to be rendered into a string:
+```php
+$page = new View('page', $variables);
+$response = $page->render();
+
+// do some voodoo stuff
+echo $response;
+```
+`render` will return a string you can work with and finally echo out to the client.
+&nbsp;
