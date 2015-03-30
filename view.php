@@ -21,9 +21,9 @@ class View {
 	/**
 	 * holds the template variables
 	 * 
-	 * @var string
+	 * @var array
 	 */
-	private $variables = '';
+	private $variables = array();
 
 
 	/**
