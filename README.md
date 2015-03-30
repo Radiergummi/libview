@@ -4,7 +4,7 @@ Easy library to create views from templates. This is a PHP template engine, whic
 *Please note:* This is heavily inspired by the fantastic [nano framework by rwarasaurus](https://github.com/rwarasaurus/nano/). I just made it a little more modular and simpler to use.
 
 ## Philosophy
-There are people who claim pure PHP being to complicated for designers and advocate for template engines like Smarty instead. If you belong to those and are still reading this, please consider the points made [here](http://www.bigsmoke.us/php-templates/smarter-sans-smarty). I think learning an additional template syntax to replace basic PHP structure is just too much overhead, both in transmission and learning effort.  
+There are people who claim pure PHP being too complicated for designers and advocate for template engines like Smarty instead. If you belong to those and are still reading this, please consider the points made [here](http://www.bigsmoke.us/php-templates/smarter-sans-smarty). I think learning an additional template syntax to replace basic PHP structure is just too much overhead, both in transmission and learning effort.  
 &nbsp;
 &nbsp;
 
