@@ -3,6 +3,12 @@ Easy library to create views from templates. This is a PHP template engine, whic
 
 *Please note:* This is heavily inspired by the fantastic [nano framework by rwarasaurus](https://github.com/rwarasaurus/nano/). I just made it a little more modular and simpler to use.
 
+## Philosophy
+There are people who claim pure PHP being to complicated for designers and advocate for template engines like Smarty instead. If you belong to those and are still reading this, please consider the points made [here](http://www.bigsmoke.us/php-templates/smarter-sans-smarty). I think learning an additional template syntax to replace basic PHP structure is just too much overhead, both in transmission and learning effort.  
+&nbsp;
+&nbsp;
+
+
 ## Usage
 To create a basic view, construct a new one:
 ```php
@@ -28,11 +34,10 @@ The template file `templates/page.php` could look like this:
     <h1><? echo $welcomeMessage; ?></h1>
 // ...
 ```
-There are people who claim pure PHP being to complicated for designers and advocate for template engines like Smarty instead. If you belong to those and are still reading this, please consider the points made [here](http://www.bigsmoke.us/php-templates/smarter-sans-smarty). I think learning an additional template syntax to replace basic PHP structure is just too much overhead, both in transmission and learning effort.  
+&nbsp;
 
 ### Functions
 Sometimes, variables are just not enough and you need a function for a specific task within your templates. To supply these, create a file named `theme_functions.php` in your apps folder (*Not* within the templates folder). Libview will check for it and pass the content to the template. Just think of *not* adding a namespace to it: That way, you can easily use the functions in it by their name.  
-&nbsp;
 
 Example:  
 `theme_functions.php`
