@@ -65,6 +65,7 @@ function asset(string $append = ''){
 
 ### Combining to String output
 If you are done with the view, just run `render()`on it: That will return a string ready for output (See below for details).
+&nbsp;
 
 ### Methods
 Libview provides several methods to prepare your View. More on them below:
@@ -79,7 +80,7 @@ $page
   ->partial('footer', 'template-footer', $footerVariables);
 ```
 In your template, you can just insert a `<? echo $header ?>` and the parsed content of the file `templates/template-header.php` will appear. You also can (but don't have to) supply template variables to the partial.
-&nbsp;
+&nbsp;  
 
 ##### Set
 To add a new template variable at some point, use `set`:
@@ -87,7 +88,7 @@ To add a new template variable at some point, use `set`:
 $page = new View('page', $variables);
 $page->set('foo', 'bar');
 ```
-&nbsp;
+&nbsp;  
 
 ##### mergeVariables
 To add multiple new template variables at some point, use `mergeVariables`:
@@ -96,7 +97,7 @@ $page = new View('page', $variables);
 $page->mergeVariables(array('port' => 8080, 'ssl' => true, 'db' => $handle));
 ```
 This will merge the existing array with the new one, which means that variables of the same name will be overwritten.
-&nbsp;
+&nbsp;  
 
 ##### render
 If a template is ready to dispatch, the whole thing needs to be rendered into a string:
