@@ -42,7 +42,7 @@ Example:
  *
  * @param string $append (optional)  append the given string to the path.
  */
-function assetPath(string $append = ''){
+function asset(string $append = ''){
   return (empty($append) ? '/main/assets/' : '/main/assets/' . ltrim($append, '/'));
 }
 ```
@@ -50,6 +50,6 @@ function assetPath(string $append = ''){
 `templates/page.php`
 ```php
 // ...
-  <link href="<? echo assetPath('css/base/page.css'); ?>" rel="stylesheet" />
+  <link href="<? echo asset('css/base/page.css'); ?>" rel="stylesheet" />
 // ...
 ```
