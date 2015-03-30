@@ -127,3 +127,27 @@ echo $response;
 ```
 `render` will return a string you can work with and finally echo out to the client.
 &nbsp;
+
+
+&nbsp;  
+&nbsp;  
+## TODO
+#### Bugs
+- None known yet
+
+#### Improvements
+- The view could be sandboxed a bit.
+- Libview should be unit tested, unfortunately, I've never done tests using PHPunit and need help with it.
+
+#### Features
+- ?
+ 
+&nbsp;  
+&nbsp;  
+## How to contribute
+I would love to see other people contribute their ideas to this project. However to ease the process, please keep the following in mind:  
+- If you find a bug, please create an issue for it, tag the issue with *bug* and include the code to reproduce it.
+- If you want to request or discuss a feature, please create an issue for it, tag it with *enhancement* and discribe it as detailed as possible.
+- If you want to contribute actual code, please fork the repository, create a new branch in your fork (eg. *feature-ini-support*), make your changes in it, and create a pull request. 
+
+Thank you!
