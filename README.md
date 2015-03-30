@@ -81,6 +81,7 @@ $page
 ```
 In your template, you can just insert a `<? echo $header ?>` and the parsed content of the file `templates/template-header.php` will appear. You also can (but don't have to) supply template variables to the partial.
 &nbsp;  
+&nbsp;  
 
 ##### Set
 To add a new template variable at some point, use `set`:
@@ -88,6 +89,7 @@ To add a new template variable at some point, use `set`:
 $page = new View('page', $variables);
 $page->set('foo', 'bar');
 ```
+&nbsp;  
 &nbsp;  
 
 ##### mergeVariables
@@ -97,6 +99,7 @@ $page = new View('page', $variables);
 $page->mergeVariables(array('port' => 8080, 'ssl' => true, 'db' => $handle));
 ```
 This will merge the existing array with the new one, which means that variables of the same name will be overwritten.
+&nbsp;  
 &nbsp;  
 
 ##### render
