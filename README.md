@@ -1,7 +1,7 @@
 # libview
 Easy library to create views from templates. This is a PHP template engine, which means it's fast, reliable and simple.
 
-*Please note:* This is heavily inspired by the fantastic [nano framework by rwarasaurus](https://github.com/rwarasaurus/nano/).Mine is a little more modular and simpler to use.
+*Please note:* This is heavily inspired by the fantastic [nano framework by rwarasaurus](https://github.com/rwarasaurus/nano/).
 &nbsp;
 &nbsp;
 
