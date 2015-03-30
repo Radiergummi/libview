@@ -16,29 +16,24 @@ class View {
 	 * @var string
 	 */
 	private $template = '';
-	
+
+
 	/**
 	 * holds the template variables
 	 * 
 	 * @var string
 	 */
 	private $variables = '';
-	
+
+
 	/**
 	 * the path to the current file (change this to whatever suits you)
 	 * 
 	 * @var string
 	 */
 	const PATH = dirname(__FILE__) . DIRECTORY_SEPARATOR;
-	
-	/**
-	 * the template file 
-	 * 
-	 * @var string
-	 */
-	const PATH = dirname(__FILE__) . DIRECTORY_SEPARATOR;
-	
-	
+
+
 	/**
 	 * Constructor
 	 * 
@@ -49,6 +44,12 @@ class View {
 			$this->template = $template;
 			$this->variables = $variables;
 	}
+
+
+	public function partial(string $name, string $template, array $variables = array()) {
+		$this->variables[$name] = new View($template, $variables);
+	}
+
 
 	public function render() {
 		// start collecting the output
