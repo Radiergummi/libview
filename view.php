@@ -45,7 +45,13 @@ class View {
 			$this->variables = $variables;
 	}
 
-
+	/**
+	 * Adds a partial view as a variable to the parent template
+	 * 
+	 * @param string $name  the variable name to use
+	 * @param string $template  the template file for the partial
+	 * @param array $variables (optional)  the template variables to use within the partial
+	 */
 	public function partial(string $name, string $template, array $variables = array()) {
 		$this->variables[$name] = new View($template, $variables);
 	}
