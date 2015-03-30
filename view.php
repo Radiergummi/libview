@@ -54,7 +54,7 @@ class View {
 	 * @param array $variables (optional)  the template variables to use within the partial
 	 */
 	public function partial(string $name, string $template, array $variables = array()) {
-		$this->variables[$name] = new View($template, $variables);
+		$this->variables[$name] = new View($template, $variables)->render();
 	}
 
 
