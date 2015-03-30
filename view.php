@@ -69,6 +69,16 @@ class View {
 	}
 
 
+	/**
+	 * Merges the variable array with another given one
+	 * 
+	 * @param array $values  the template variables array to merge
+	 */
+	public function mergeVariables(array $values) {
+		$this->variables = array_merge($this->variables, $values);
+	}
+
+
 	public function render() {
 		// start collecting the output
 		ob_start();
@@ -80,7 +90,7 @@ class View {
 		if (is_readable($theme_functions = PATH . 'theme_functions.php')) include $theme_functions;
 
 		// require the actual template
-		require $this->template_dir . $this->template . '.php';
+		require PATH . 'templates/' . $this->template . '.php';
 
 		// returb the collected output
 		return ob_get_clean();
