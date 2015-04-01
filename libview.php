@@ -1,4 +1,5 @@
 <?php
+// to use this library in your app, feel free to change this to namespace <Vendor>\<package>.
 namespace Radiergummi\libview;
 
 /**
