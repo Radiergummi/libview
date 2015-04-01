@@ -128,24 +128,13 @@ echo $response;
 &nbsp;  
 &nbsp;  
 
-##### setDefaultTemplate
-To set a default template in case the one specified cannot be found, use `setDefaultTemplate`:
-```php
-$page = new View('home', $variables);
-$page->setDefaultTemplate('page');
-```
-The default template is static, meaning it is shared among all views from now on so you don't have to set it each time.
-&nbsp;  
-&nbsp;  
-
 ##### setTemplateDir
 To set a default template directory, use `setTemplateDir`:
 ```php
-$page = new View('home', $variables);
-$page->setTemplateDir('public/templates');
+View::setTemplateDir('public/templates');
 ```
-The default value used is (relative to the script) `templates/`.
-The template directory is static, meaning it is shared among all views from now on so you don't have to set it each time.
+The default value used is (relative to the script) `templates/` (Change this yourself [https://github.com/Radiergummi/libview/blob/master/libview.php#L107](at Line 107)).
+The template directory is shared statically among all views so you don't have to set it each time.
 &nbsp;  
 &nbsp;  
 
