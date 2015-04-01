@@ -144,6 +144,7 @@ To set a default template directory, use `setTemplateDir`:
 $page = new View('home', $variables);
 $page->setTemplateDir('public/templates');
 ```
+The default value used is (relative to the script) `templates/`.
 The template directory is static, meaning it is shared among all views from now on so you don't have to set it each time.
 &nbsp;  
 &nbsp;  
