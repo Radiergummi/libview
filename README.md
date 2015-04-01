@@ -133,7 +133,7 @@ To set a default template directory, use `setTemplateDir`:
 ```php
 View::setTemplateDir('public/templates');
 ```
-The default value used is (relative to the script) `templates/` (Change this yourself [https://github.com/Radiergummi/libview/blob/master/libview.php#L107](at Line 107)).
+The default value used is (relative to the script) `templates/` (Change this yourself [at Line 107](https://github.com/Radiergummi/libview/blob/master/libview.php#L107)).
 The template directory is shared statically among all views so you don't have to set it each time.
 &nbsp;  
 &nbsp;  
