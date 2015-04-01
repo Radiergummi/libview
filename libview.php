@@ -34,14 +34,6 @@ class View
 
 
 	/**
-	 * the default (fallback) template to use, shared among all views
-	 * 
-	 * @var string
-	 */
-	public static $defaultTemplate = '';
-
-
-	/**
 	 * Constructor
 	 * 
 	 * @param string $template  the template file to work with
@@ -61,20 +53,9 @@ class View
 	 * 
 	 * @param string $templateDir  a custom template directory for this view
 	 */
-	public function setTemplateDir($templateDir)
+	public static function setTemplateDir($templateDir)
 	{
 		static::$templateDir = $templateDir;
-	}
-
-
-	/**
-	 * Sets a default template
-	 * 
-	 * @param string $defaultTemplate  a fallback template in case the spicified isn't to be found
-	 */
-	public function setdefaultTemplate($defaultTemplate)
-	{
-		static::$defaultTemplate = $defaultTemplate;
 	}
 
 
@@ -114,6 +95,20 @@ class View
 	}
 
 
+	/**
+	 * Retrieve the template directory
+	 * 
+	 * @return the full path to the template directory
+	 */
+	private function getTemplatePath()
+	{
+		return (empty(self::$templateDir)
+			? dirname(__FILE__) . DIRECTORY_SEPARATOR . 'templates' . DIRECTORY_SEPARATOR
+			: rtrim(self::$templateDir, '/') . DIRECTORY_SEPARATOR
+		);
+	}
+
+
 	public function render()
 	{
 		// start collecting the output
@@ -126,11 +121,7 @@ class View
 		if (is_readable($theme_functions = PATH . 'theme_functions.php')) include $theme_functions;
 
 		// require the actual template
-		if (is_readable($this->template)) {
-		    require $this->templateDir . $this->template . '.php';
-		} else {
-		    require $this->templateDir . static::$defaultTemplate . '.php';
-		}
+		require $this->getTemplatePath() . $this->template;
 
 		// returb the collected output
 		return ob_get_clean();
