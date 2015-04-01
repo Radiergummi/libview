@@ -1,7 +1,5 @@
-<?
-// enable these if you intend to use this library in its own namespace!
-# namespace View;
-# 
+<?php
+namespace Radiergummi\libview;
 
 /**
  * General purpose view class
@@ -9,7 +7,8 @@
  * @package libview
  * @author Moritz Friedrich <m@9dev.de>
  */
-class View {
+class View
+{
 	/**
 	 * holds the current template
 	 * 
@@ -40,7 +39,8 @@ class View {
 	 * @param string $template  the template file to work with
 	 * @param array $variables (optional)  the variables to replace in the template
 	 */
-	public function __construct(string $template, array $variables = array()) {
+	public function __construct(string $template, array $variables = array())
+	{
 			$this->template = $template;
 			$this->variables = $variables;
 	}
@@ -53,7 +53,8 @@ class View {
 	 * @param string $template  the template file for the partial
 	 * @param array $variables (optional)  the template variables to use within the partial
 	 */
-	public function partial(string $name, string $template, array $variables = array()) {
+	public function partial(string $name, string $template, array $variables = array())
+	{
 		$this->variables[$name] = (new View($template, $variables))->render();
 	}
 
@@ -64,7 +65,8 @@ class View {
 	 * @param string $name  the variable name to use
 	 * @param mixed $value  the template file for the partial
 	 */
-	public function set(string $name, mixed $value) {
+	public function set(string $name, mixed $value)
+	{
 		$this->variables[$name] = $value;
 	}
 
@@ -74,12 +76,14 @@ class View {
 	 * 
 	 * @param array $values  the template variables array to merge
 	 */
-	public function mergeVariables(array $values) {
+	public function mergeVariables(array $values)
+	{
 		$this->variables = array_merge($this->variables, $values);
 	}
 
 
-	public function render() {
+	public function render()
+	{
 		// start collecting the output
 		ob_start();
 
