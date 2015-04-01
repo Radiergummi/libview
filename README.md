@@ -125,7 +125,29 @@ $response = $page->render();
 echo $response;
 ```
 `render` will return a string you can work with and finally echo out to the client.
-&nbsp;
+&nbsp;  
+&nbsp;  
+
+##### setDefaultTemplate
+To set a default template in case the one specified cannot be found, use `setDefaultTemplate`:
+```php
+$page = new View('home', $variables);
+$page->setDefaultTemplate('page');
+```
+The default template is static, meaning it is shared among all views from now on so you don't have to set it each time.
+&nbsp;  
+&nbsp;  
+
+##### setTemplateDir
+To set a default template directory, use `setTemplateDir`:
+```php
+$page = new View('home', $variables);
+$page->setTemplateDir('public/templates');
+```
+The template directory is static, meaning it is shared among all views from now on so you don't have to set it each time.
+&nbsp;  
+&nbsp;  
+
 
 
 &nbsp;  
