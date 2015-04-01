@@ -49,18 +49,10 @@ class View
 	 * @param string $templateDir (optional)  a custom template directory for this view
 	 * @param string $defaultTemplate (optional)  a fallback template in case the spicified isn't to be found
 	 */
-	public function __construct($template, array $variables = array(), $templateDir = '', $defaultTemplate = '')
+	public function __construct($template, array $variables = array())
 	{
 			$this->template = $template;
 			$this->variables = $variables;
-			static::$templateDir = (isset($templateDir))
-			    ? $templateDir
-			    : dirname(__FILE__) . DIRECTORY_SEPARATOR . 'templates' . DIRECTORY_SEPARATOR
-			);
-			static::$defaultTemplate = (isset($defaultTemplate))
-			    ? $defaultTemplate
-			    : 'page'
-			);
 	}
 
 
