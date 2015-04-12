@@ -80,7 +80,7 @@ function asset(string $append = ''){
 If you are done with the view, just run `render()`on it: That will return a string ready for output (See below for details).
 &nbsp;
 
-### Methods
+## Methods
 Libview provides several methods to prepare your View. More on them below:
 &nbsp;
 
