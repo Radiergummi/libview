@@ -20,7 +20,7 @@ class ViewTest extends PHPUnit_Framework_TestCase
   public function testCreateObject()
   {
     $template = $this->templatePath . 'page.php';
-    $obj = new Radiergummi\Libview\View($template, $variables);
+    $obj = new Radiergummi\Libview\View($template);
     
     $this->assertInstanceOf('Radiergummi\Libview\View', $obj);
   }
