@@ -62,7 +62,7 @@ Example:
  *
  * @param string $append (optional)  append the given string to the path.
  */
-function asset(string $append = ''){
+function asset($append = ''){
   return (empty($append) ? '/main/assets/' : '/main/assets/' . ltrim($append, '/'));
 }
 ```
