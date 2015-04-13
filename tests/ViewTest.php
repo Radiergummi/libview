@@ -14,7 +14,7 @@ class ViewTest extends PHPUnit_Framework_TestCase
   {
     parent::setUp();
     $this->fixturePath = dirname(__FILE__) . DS . 'fixtures' . DS;
-    $this->templatePath = $this->fixturePath . DS . 'templates' . DS;
+    $this->templatePath = $this->fixturePath . DS . 'templates';
   }
 
   public function testCreateObject()
