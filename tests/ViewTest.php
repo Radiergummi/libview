@@ -13,8 +13,8 @@ class ViewTest extends PHPUnit_Framework_TestCase
   function setUp()
   {
     parent::setUp();
-    $this->fixturePath = dirname(__FILE__) . DIRECTORY_SEPARATOR . 'fixtures' . DIRECTORY_SEPARATOR;
-    $this->templatePath = $this->fixturePath . DIRECTORY_SEPARATOR . 'templates' . DIRECTORY_SEPARATOR;
+    $this->fixturePath = dirname(__FILE__) . DS . 'fixtures' . DS;
+    $this->templatePath = $this->fixturePath . DS . 'templates' . DS;
   }
 
   public function testCreateObject()
