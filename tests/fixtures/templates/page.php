@@ -1,6 +1,6 @@
 <p>It worked!</p>
 <div class="variables">
-  <span>A: <?=$a?></span>
-  <span>B: <?=$b?></span>
-  <span>C: <?=$c?></span>
+  <span>A: <? echo $a; ?></span>
+  <span>B: <? echo $b; ?></span>
+  <span>C: <? echo $c; ?></span>
 </div>
