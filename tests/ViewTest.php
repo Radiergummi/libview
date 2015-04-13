@@ -51,7 +51,7 @@ class ViewTest extends PHPUnit_Framework_TestCase
   {
     Radiergummi\Libview\View::setTemplateDir($this->templatePath);
     $template = 'page';
-    $variables = array('a' => 'foo');
+    $variables = array('a' => 'foo', 'b' => 'bar', 'c' => 'baz');
     $obj = new Radiergummi\Libview\View($template, $variables);
     $output = $obj->render();
 
