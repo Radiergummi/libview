@@ -1,4 +1,4 @@
-# libview
+# libview [![Build Status](https://travis-ci.org/Radiergummi/libview.svg?branch=master)](https://travis-ci.org/Radiergummi/libview)
 Easy library to create views from templates. This is a PHP template engine, which means it's fast, reliable and simple.
 
 *Please note:* This is heavily inspired by the fantastic [nano framework by rwarasaurus](https://github.com/rwarasaurus/nano/).
