@@ -11,7 +11,7 @@ Easy library to create views from templates. This is a PHP template engine, whic
 - Partials (sub-templates)
 - Separately defined template variables and functions
 - No external dependencies
-- Small as hell (26 SLOC currently)
+- Small as hell
 &nbsp;
 &nbsp;
 
