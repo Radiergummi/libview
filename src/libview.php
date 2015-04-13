@@ -69,6 +69,8 @@ class View
 	 */
 	public function partial($name, $template, array $variables = array())
 	{
+		// We could also use "$var = (new Foo)->method();" here, but that'd break 5.3 compatibility.
+		// So this essentially achieves the same effect, even though it is a bit uglier :-)
 		$this->variables[$name] = ($partial = new View($template, $variables) ? $partial->render() : '');
 	}
 
