@@ -124,7 +124,7 @@ class View
 		if (is_readable($theme_functions = dirname(__FILE__) . DIRECTORY_SEPARATOR . 'theme_functions.php')) include $theme_functions;
 
 		// require the actual template
-		require $this->getTemplatePath() . $this->template;
+		require $this->getTemplatePath() . $this->template . '.php';
 
 		// returb the collected output
 		return ob_get_clean();
