@@ -121,7 +121,7 @@ class View
 		extract($this->variables);
 		
 		// include the theme functions file, if any
-		if (is_readable($theme_functions = PATH . 'theme_functions.php')) include $theme_functions;
+		if (is_readable($theme_functions = dirname(__FILE__) . DIRECTORY_SEPARATOR . 'theme_functions.php')) include $theme_functions;
 
 		// require the actual template
 		require $this->getTemplatePath() . $this->template;
