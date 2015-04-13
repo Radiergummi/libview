@@ -25,3 +25,4 @@ class ViewTest extends PHPUnit_Framework_TestCase
     
     $this->assertInstanceOf('Radiergummi\Libview\View', $obj);
   }
+}
