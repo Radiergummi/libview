@@ -4,4 +4,4 @@
  * 
  */
 define('DS', DIRECTORY_SEPARATOR);
-require dirname(__FILE__) . DS . '..' . DS  . 'src' . DS . 'libview.php' PATH . '../src/config.php';
+require dirname(__FILE__) . DS . '..' . DS  . 'src' . DS . 'libview.php';
