@@ -20,9 +20,37 @@ class ViewTest extends PHPUnit_Framework_TestCase
   public function testCreateObject()
   {
     $template = $this->templatePath . 'page.php';
+    $obj = new Radiergummi\Libview\View($template, $variables);
+    
+    $this->assertInstanceOf('Radiergummi\Libview\View', $obj);
+  }
+
+  public function testCreateObjectWithVariables()
+  {
+    $template = $this->templatePath . 'page.php';
     $variables = array('a' => 'foo', 'b' => 'bar', 'c' => 'baz');
     $obj = new Radiergummi\Libview\View($template, $variables);
     
     $this->assertInstanceOf('Radiergummi\Libview\View', $obj);
+  }
+
+  public function testRenderView()
+  {
+    $template = $this->templatePath . 'page.php';
+    $variables = array('a' => 'foo', 'b' => 'bar', 'c' => 'baz');
+    $obj = new Radiergummi\Libview\View($template, $variables);
+    $output = $obj->render();
+
+    $this->assertInternalType('string', $output);
+  }
+
+  public function testRenderViewContainsVariable()
+  {
+    $template = $this->templatePath . 'page.php';
+    $variables = array('a' => 'foo');
+    $obj = new Radiergummi\Libview\View($template, $variables);
+    $output = $obj->render();
+
+    $this->assertNotFalse(strpos($output, 'foo'));
   }
 }
