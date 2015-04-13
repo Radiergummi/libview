@@ -1,9 +1,7 @@
 <?php
-
 /**
- * LibView bootstrap file.
- *
- *
+ * Libconfig Unit Tests Bootstrap File
+ * 
  */
-define(DS, DIRECTORY_SEPARATOR)
-require(dirname(__FILE__) . DS . 'src' . DS . 'libview.php'):
+define('DS', DIRECTORY_SEPARATOR);
+require dirname(__FILE__) . DS . '..' . DS  . 'src' . DS . 'libview.php' PATH . '../src/config.php';
