@@ -69,7 +69,7 @@ class View
 	 */
 	public function partial($name, $template, array $variables = array())
 	{
-		$this->variables[$name] = (new View($template, $variables))->render();
+		$this->variables[$name] = ($partial = new View($template, $variables) ? $partial->render() : '';
 	}
 
 
