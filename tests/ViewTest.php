@@ -20,7 +20,7 @@ class ViewTest extends PHPUnit_Framework_TestCase
   public function testCreateObject()
   {
     Radiergummi\Libview\View::setTemplateDir($this->templatePath);
-    $template = $this->templatePath . 'page.php';
+    $template = 'page';
     $obj = new Radiergummi\Libview\View($template);
     
     $this->assertInstanceOf('Radiergummi\Libview\View', $obj);
@@ -29,7 +29,7 @@ class ViewTest extends PHPUnit_Framework_TestCase
   public function testCreateObjectWithVariables()
   {
     Radiergummi\Libview\View::setTemplateDir($this->templatePath);
-    $template = $this->templatePath . 'page.php';
+    $template = 'page';
     $variables = array('a' => 'foo', 'b' => 'bar', 'c' => 'baz');
     $obj = new Radiergummi\Libview\View($template, $variables);
     
@@ -39,7 +39,7 @@ class ViewTest extends PHPUnit_Framework_TestCase
   public function testRenderView()
   {
     Radiergummi\Libview\View::setTemplateDir($this->templatePath);
-    $template = $this->templatePath . 'page.php';
+    $template = 'page';
     $variables = array('a' => 'foo', 'b' => 'bar', 'c' => 'baz');
     $obj = new Radiergummi\Libview\View($template, $variables);
     $output = $obj->render();
@@ -50,7 +50,7 @@ class ViewTest extends PHPUnit_Framework_TestCase
   public function testRenderViewContainsVariable()
   {
     Radiergummi\Libview\View::setTemplateDir($this->templatePath);
-    $template = $this->templatePath . 'page.php';
+    $template = 'page';
     $variables = array('a' => 'foo');
     $obj = new Radiergummi\Libview\View($template, $variables);
     $output = $obj->render();
