@@ -54,7 +54,7 @@ class ViewTest extends PHPUnit_Framework_TestCase
     $variables = array('a' => 'foo', 'b' => 'bar', 'c' => 'baz');
     $obj = new Radiergummi\Libview\View($template, $variables);
     $output = $obj->render();
-    echo $output;
+
     $this->assertNotFalse(strpos($output, 'foo'));
   }
 }
