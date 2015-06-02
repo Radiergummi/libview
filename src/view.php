@@ -8,7 +8,7 @@ namespace Radiergummi\libview;
  * @package libview
  * @author Moritz Friedrich <m@9dev.de>
  */
-class Libview
+class View
 {
 	/**
 	 * holds the current template
