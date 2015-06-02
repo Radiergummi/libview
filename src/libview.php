@@ -8,7 +8,7 @@ namespace Radiergummi\libview;
  * @package libview
  * @author Moritz Friedrich <m@9dev.de>
  */
-class View
+class Libview
 {
 	/**
 	 * holds the current template
@@ -66,10 +66,13 @@ class View
 	 * @param string $name  the variable name to use
 	 * @param string $template  the template file for the partial
 	 * @param array $variables (optional)  the template variables to use within the partial
+	 * 
+	 * @return object $this for chaining
 	 */
 	public function partial($name, $template, array $variables = array())
 	{
 		$this->variables[$name] = (new View($template, $variables))->render();
+		return $this;
 	}
 
 
@@ -104,7 +107,7 @@ class View
 	private function getTemplatePath()
 	{
 		return (empty(self::$templateDir)
-			? dirname(__FILE__) . DIRECTORY_SEPARATOR . 'templates' . DIRECTORY_SEPARATOR
+			? dirname(__FILE__) . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR
 			: rtrim(self::$templateDir, '/') . DIRECTORY_SEPARATOR
 		);
 	}
@@ -119,7 +122,7 @@ class View
 		extract($this->variables);
 		
 		// include the theme functions file, if any
-		if (is_readable($theme_functions = dirname(__FILE__) . DIRECTORY_SEPARATOR . 'theme_functions.php')) include $theme_functions;
+		if (is_readable($theme_functions = dirname(__FILE__) . DIRECTORY_SEPARATOR . 'theme_functions.php')) require_once $theme_functions;
 
 		// require the actual template
 		require $this->getTemplatePath() . $this->template . '.php';
