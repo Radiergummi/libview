@@ -11,15 +11,15 @@ namespace Radiergummi\libview;
 class View
 {
 	/**
-	 * holds the current template
+	 * holds the current view
 	 * 
 	 * @var string
 	 */
-	private $template = '';
+	private $view = '';
 
 
 	/**
-	 * holds the template variables
+	 * holds the view variables
 	 * 
 	 * @var array
 	 */
@@ -27,60 +27,60 @@ class View
 
 
 	/**
-	 * the default path to the template directory, shared among all views
+	 * the default path to the view directory, shared among all views
 	 * 
 	 * @var string
 	 */
-	public static $templateDir = '';
+	public static $viewDir = '';
 
 
 	/**
 	 * Constructor
 	 * 
-	 * @param string $template  the template file to work with
-	 * @param array $variables (optional)  the variables to replace in the template
-	 * @param string $templateDir (optional)  a custom template directory for this view
-	 * @param string $defaultTemplate (optional)  a fallback template in case the spicified isn't to be found
+	 * @param string $view  the view file to work with
+	 * @param array $variables (optional)  the variables to replace in the view
+	 * @param string $viewDir (optional)  a custom view directory for this view
+	 * @param string $defaultview (optional)  a fallback view in case the spicified isn't to be found
 	 */
-	public function __construct($template, array $variables = array())
+	public function __construct($view, array $variables = array())
 	{
-			$this->template = $template;
+			$this->view = $view;
 			$this->variables = $variables;
 	}
 
 
 	/**
-	 * Sets a custom template directory
+	 * Sets a custom view directory
 	 * 
-	 * @param string $templateDir  a custom template directory for this view
+	 * @param string $viewDir  a custom view directory for this view
 	 */
-	public static function setTemplateDir($templateDir)
+	public static function setviewDir($viewDir)
 	{
-		static::$templateDir = $templateDir;
+		static::$viewDir = $viewDir;
 	}
 
 
 	/**
-	 * Adds a partial view as a variable to the parent template
+	 * Adds a partial view as a variable to the parent view
 	 * 
 	 * @param string $name  the variable name to use
-	 * @param string $template  the template file for the partial
-	 * @param array $variables (optional)  the template variables to use within the partial
+	 * @param string $view  the view file for the partial
+	 * @param array $variables (optional)  the view variables to use within the partial
 	 * 
 	 * @return object $this for chaining
 	 */
-	public function partial($name, $template, array $variables = array())
+	public function partial($name, $view, array $variables = array())
 	{
-		$this->variables[$name] = (new View($template, $variables))->render();
+		$this->variables[$name] = (new View($view, $variables))->render();
 		return $this;
 	}
 
 
 	/**
-	 * Sets a variable for the template
+	 * Sets a variable for the view
 	 * 
 	 * @param string $name  the variable name to use
-	 * @param mixed $value  the template file for the partial
+	 * @param mixed $value  the view file for the partial
 	 */
 	public function set($name, $value)
 	{
@@ -91,7 +91,7 @@ class View
 	/**
 	 * Merges the variable array with another given one
 	 * 
-	 * @param array $values  the template variables array to merge
+	 * @param array $values  the view variables array to merge
 	 */
 	public function mergeVariables(array $values)
 	{
@@ -100,15 +100,15 @@ class View
 
 
 	/**
-	 * Retrieve the template directory
+	 * Retrieve the view directory
 	 * 
-	 * @return the full path to the template directory
+	 * @return the full path to the view directory
 	 */
-	private function getTemplatePath()
+	private function getviewPath()
 	{
-		return (empty(self::$templateDir)
+		return (empty(self::$viewDir)
 			? dirname(__FILE__) . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR
-			: rtrim(self::$templateDir, '/') . DIRECTORY_SEPARATOR
+			: rtrim(self::$viewDir, '/') . DIRECTORY_SEPARATOR
 		);
 	}
 
@@ -118,14 +118,14 @@ class View
 		// start collecting the output
 		ob_start();
 
-		// make the variables available in the template
+		// make the variables available in the view
 		extract($this->variables);
 		
 		// include the theme functions file, if any
 		if (is_readable($theme_functions = dirname(__FILE__) . DIRECTORY_SEPARATOR . 'theme_functions.php')) require_once $theme_functions;
 
-		// require the actual template
-		require $this->getTemplatePath() . $this->template . '.php';
+		// require the actual view
+		require $this->getviewPath() . $this->view . '.php';
 
 		// returb the collected output
 		return ob_get_clean();
